@@ -1,4 +1,4 @@
----@module 'oxwm'
+
 local colors = require("colorthemes.default")
 
 -- Workspace tags - can be numbers, names, or icons (requires a Nerd Font)
