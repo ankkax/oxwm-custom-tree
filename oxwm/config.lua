@@ -12,8 +12,8 @@
 ---Load type definitions for LSP
 ---@module 'oxwm'
 
-require("conf.keybindings")
-require("conf.startup")
-require("conf.windowrules")
 require("conf.bar")
+require("conf.autostart")
+require("conf.rules")
+require("conf.keybindings")
 require("conf.wm")
