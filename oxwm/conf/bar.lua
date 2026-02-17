@@ -1,12 +1,11 @@
-
-local colors = require("colorthemes.default")
+local colors = require("conf.colors")
 
 -- Workspace tags - can be numbers, names, or icons (requires a Nerd Font)
 local tags = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 -- local tags = { "", "󰊯", "", "", "󰙯", "󱇤", "", "󱘶", "󰧮" } -- Example of nerd font icon tags
 
 -- Font for the status bar (use "fc-list" to see available fonts)
-local bar_font = "monospace:style=Bold:size=10"
+local bar_font = "monospace:style=Bold:size=12"
 
 -- Define your blocks
 -- Similar to widgets in qtile, or dwmblocks
@@ -18,7 +17,7 @@ local blocks = {
 		underline = true,
 	}),
 	oxwm.bar.block.static({
-		text = " │  ",
+		text = "│",
 		interval = 999999999,
 		color = colors.lavender,
 		underline = false,
@@ -31,7 +30,7 @@ local blocks = {
 		underline = true,
 	}),
 	oxwm.bar.block.static({
-		text = " │  ",
+		text = "│",
 		interval = 999999999,
 		color = colors.lavender,
 		underline = false,
@@ -44,17 +43,27 @@ local blocks = {
 		underline = true,
 	}),
 	-- Uncomment to add battery status (useful for laptops)
-	-- oxwm.bar.block.battery({
-	--     format = "Bat: {}%",
-	--     charging = "⚡ Bat: {}%",
-	--     discharging = "- Bat: {}%",
-	--     full = "✓ Bat: {}%",
-	--     interval = 30,
-	--     color = colors.green,
-	--     underline = true,
-	-- }),
+	oxwm.bar.block.battery({
+		format = "Bat: {}%",
+		charging = "⚡ Bat: {}%",
+		discharging = "- Bat: {}%",
+		full = "✓ Bat: {}%",
+		interval = 30,
+		color = colors.green,
+		underline = true,
+	}),
 }
+
 oxwm.set_tags(tags)
+
+-------------------------------------------------------------------------------
+-- Layouts
+-------------------------------------------------------------------------------
+-- Set custom symbols for layouts (displayed in the status bar)
+-- Available layouts: "tiling", "normie" (floating), "grid", "monocle", "tabbed"
+oxwm.set_layout_symbol("tiling", "[T]")
+oxwm.set_layout_symbol("normie", "[F]")
+oxwm.set_layout_symbol("tabbed", "[=]")
 
 -------------------------------------------------------------------------------
 -- Status Bar Configuration

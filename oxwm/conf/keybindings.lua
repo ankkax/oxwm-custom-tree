@@ -8,12 +8,11 @@
 local modkey = "Mod4"
 
 -- Terminal emulator command (defaults to alacritty)
-local terminal = "alacritty"
--------------------------------------------------------------------------------
--- Basic Settings
--------------------------------------------------------------------------------
+local terminal = "kitty"
+
 oxwm.set_terminal(terminal)
 oxwm.set_modkey(modkey) -- This is for Mod + mouse binds, such as drag/resize
+
 -------------------------------------------------------------------------------
 -- Keybindings
 -------------------------------------------------------------------------------
@@ -27,7 +26,7 @@ oxwm.set_modkey(modkey) -- This is for Mod + mouse binds, such as drag/resize
 
 -- Basic window management
 
-oxwm.key.bind({ modkey }, "Return", oxwm.spawn_terminal())
+oxwm.key.bind({ modkey }, "T", oxwm.spawn_terminal())
 -- Launch Dmenu
 oxwm.key.bind({ modkey }, "D", oxwm.spawn({ "sh", "-c", "dmenu_run -l 10" }))
 -- Copy screenshot to clipboard
@@ -92,6 +91,10 @@ oxwm.key.bind({ modkey }, "7", oxwm.tag.view(6))
 oxwm.key.bind({ modkey }, "8", oxwm.tag.view(7))
 oxwm.key.bind({ modkey }, "9", oxwm.tag.view(8))
 
+oxwm.key.bind({ modkey }, "Right", oxwm.tag.view_next())
+oxwm.key.bind({ modkey }, "Left", oxwm.tag.view_previous())
+oxwm.key.bind({ modkey }, "Up", oxwm.tag.view_next_nonempty())
+oxwm.key.bind({ modkey }, "Down", oxwm.tag.view_previous_nonempty())
 -- Move focused window to workspace N
 oxwm.key.bind({ modkey, "Shift" }, "1", oxwm.tag.move_to(0))
 oxwm.key.bind({ modkey, "Shift" }, "2", oxwm.tag.move_to(1))

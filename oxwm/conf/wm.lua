@@ -1,12 +1,8 @@
-local colors = require("colorthemes.default")
 -------------------------------------------------------------------------------
--- Layouts
+-- Basic Settings
 -------------------------------------------------------------------------------
--- Set custom symbols for layouts (displayed in the status bar)
--- Available layouts: "tiling", "normie" (floating), "grid", "monocle", "tabbed"
-oxwm.set_layout_symbol("tiling", "[T]")
-oxwm.set_layout_symbol("normie", "[F]")
-oxwm.set_layout_symbol("tabbed", "[=]")
+
+local colors = require("conf.colors")
 
 -------------------------------------------------------------------------------
 -- Appearance
@@ -21,7 +17,7 @@ oxwm.border.set_focused_color(colors.blue)
 oxwm.border.set_unfocused_color(colors.grey)
 
 -- Smart Enabled = No border if 1 window
-oxwm.gaps.set_smart(enabled)
+oxwm.gaps.set_smart(Enabled)
 -- Inner gaps (horizontal, vertical) in pixels
 oxwm.gaps.set_inner(5, 5)
 -- Outer gaps (horizontal, vertical) in pixels
